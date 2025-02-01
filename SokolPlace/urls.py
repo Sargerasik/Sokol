@@ -28,10 +28,11 @@ accounts/ password_reset/done/ [name='password_reset_done']
 accounts/ reset/<uidb64>/<token>/ [name='password_reset_confirm']
 accounts/ reset/done/ [name='password_reset_complete']
 """
-
 urlpatterns = [
+    path('accounts/logout/', views.logout_view, name='logout'),
+    path('account/registration/', views.registration, name='registration'),
     path("accounts/", include("django.contrib.auth.urls")),
     path('admin/', admin.site.urls),
-    path('', views.index_page, name='profile'),
+    path('', views.index_page, name='home'),
     path("accounts/profile/", profile_page, name='profile'),
 ]
